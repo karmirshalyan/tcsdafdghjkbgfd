@@ -728,4 +728,23 @@ function fetchSong(tokenToUse) {
         if (e.message.includes('401')) {
             // Токен невалиден, запускаем аутентификацию заново
             localStorage.removeItem("access_token");
-            localStorage.removeItem("ref
+            localStorage.removeItem("refresh_token");
+            showAuthModal();
+        }
+    });
+}
+
+// ===================== ROTATION =====================
+function updateRotation() {
+    const vinyl = document.getElementById('vinyl-container');
+    if(!isPaused){
+        vinyl.classList.add('spinning');
+        vinyl.classList.remove('paused');
+    } else {
+        vinyl.classList.add('paused');
+    }
+}
+</script>
+
+</body>
+</html>
